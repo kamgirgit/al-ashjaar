@@ -1,0 +1,51 @@
+:root{
+	--dark-grey: #383326;
+	--white : #fff;
+	--yellow:#e7b320;
+}
+*{
+	padding: 0;
+	margin: 0;
+	box-sizing: border-box;
+
+}
+body{
+	font-family: 'Source Sans Pro', sans-serif;
+	/*font-family:  "Raleway", sans-serif;*/
+}
+/*header*/
+.header{
+	padding: 10px 0;
+	background: var(--dark-grey);
+}
+.header .navbar-dark .navbar-nav .nav-link{
+	color:  var(--white);
+}
+.header .navbar-dark .navbar-nav .active>.nav-link, .header .navbar-dark .navbar-nav .nav-link.active, .header .navbar-dark .navbar-nav .nav-link.show, .header .navbar-dark .navbar-nav .show>.nav-link{
+	color:  var(--yellow);
+}
+.header .navbar-dark .navbar-nav .nav-link:hover,.header .form-inline a:hover{
+	color:  var(--yellow)!important;
+}
+.header .navbar-dark .navbar-nav .nav-link,.header .form-inline a{
+	text-transform: uppercase;
+	letter-spacing: 0.5px;
+	font-size: 15px;
+}
+.header .navbar-dark .navbar-brand img{
+	width: 100px;
+}
+/*header end*/
+
+/*about us*/
+.about-us .about-img img{
+	border-radius: 15px;
+	margin: 10px;
+}
+/*about us end*/
+
+/*signup-form*/
+.sign-up{
+	padding: 40px 0;
+}
+/*signup-form end*/
