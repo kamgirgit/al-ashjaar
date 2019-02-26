@@ -69,25 +69,32 @@
 			<div class="col-md-3"></div>
 			<div class="col-md-6">
 				<h1 class="display-5 text-center">Sign Up</h1>
-				<form>
+				<form method="POST" action="adminsign.php">
 
 				  <div class="form-group">
 				    <label>User name</label>
-				    <input type="text" class="form-control" placeholder="Enter name">
+				    <input type="text" class="form-control" name="mname" placeholder="Enter name">
 				  </div>	
 				  <div class="form-group">
 				    <label>Email address</label>
-				    <input type="email" class="form-control" placeholder="Enter email">
+				    <input type="email" class="form-control" name="email" placeholder="Enter email">
 				    <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
 				  </div>
+
+				  <div class="form-group">
+				    <label>Username</label>
+				    <input type="text" class="form-control" name="uname" placeholder="Enter UserName">
+				  </div>
+
 				  <div class="form-group">
 				    <label>Password</label>
-				    <input type="password" class="form-control" placeholder="Password">
+				    <input type="password" class="form-control" name="pass" placeholder="Password">
 				  </div>
 				  <div class="form-check">
 				  </div>
 				  <div class="text-center mt-4">
-					  <button type="submit" class="btn btn-primary ">Submit</button>
+				  	<input type="submit" name="signup" class="btn btn-primary" value="Submit">
+					  <!-- <button type="submit" class="btn btn-primary ">Submit</button> -->
 				  </div>
 				</form>
 			</div>
@@ -103,3 +110,43 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 </body>
 </html>
+
+
+<?php
+
+$myname=0;
+$email = 0;
+$username=0;
+$password= 0;
+include ('../dbcon.php');
+
+if(isset($_POST['signup'])){
+
+
+	
+	$myname = $_POST['mname'];
+	$email = $_POST['email'];
+	$username = $_POST['uname'];
+	$password = $_POST['pass'];
+}
+// echo"yahan tak run ";
+// echo $name;
+
+
+$query = "INSERT INTO admin (name, email, username, password) VALUES ('$myname', '$email', '$username', '$password')";
+
+$run = mysqli_query($con,$query);
+
+if($run == true){
+	?>
+
+	<script type="text/javascript">
+		alert("data inserted successfully");
+	</script>
+
+	<?php
+} else{
+	echo" query not fire ";
+}
+
+?>
