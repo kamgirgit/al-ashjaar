@@ -120,8 +120,7 @@ if(isset($_POST['login'])){
 	$qry = "SELECT * FROM admin WHERE username= '$username' AND password= '$password';  ";
 	$run = mysqli_query($con, $qry);
 
-	$row = mysqli_num_rows($run);
-
+	$row = mysqli_num_rows($run) ;
 	if($row<1){
 
 		?>
@@ -135,14 +134,17 @@ if(isset($_POST['login'])){
 
 	} else{
 		$data = mysqli_fetch_assoc($run);
-		// echo $data['name'];
+		echo $data['name'];
 		$id = $data['id'];
-
+		
+		$name = $data['name'];
 		echo "id =" .$id;
 
-		// session_start();
+		session_start();
 
-		// $_SESSION['uid'] = $id;
+		$_SESSION['uid'] = $id;
+
+		$_SESSION['tname'] = $name;
 
 		header('location:admindash.php');
 	}

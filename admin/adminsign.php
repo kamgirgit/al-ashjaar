@@ -73,22 +73,22 @@
 
 				  <div class="form-group">
 				    <label>User name</label>
-				    <input type="text" class="form-control" name="mname" placeholder="Enter name">
+				    <input type="text" class="form-control" name="mname" placeholder="Enter name" required="">
 				  </div>	
 				  <div class="form-group">
 				    <label>Email address</label>
-				    <input type="email" class="form-control" name="email" placeholder="Enter email">
+				    <input type="email" class="form-control" name="email" placeholder="Enter email" required="">
 				    <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
 				  </div>
 
 				  <div class="form-group">
 				    <label>Username</label>
-				    <input type="text" class="form-control" name="uname" placeholder="Enter UserName">
+				    <input type="text" class="form-control" name="uname" placeholder="Enter UserName" required="">
 				  </div>
 
 				  <div class="form-group">
 				    <label>Password</label>
-				    <input type="password" class="form-control" name="pass" placeholder="Password">
+				    <input type="password" class="form-control" name="pass" placeholder="Password" required="" > 
 				  </div>
 				  <div class="form-check">
 				  </div>
@@ -114,21 +114,19 @@
 
 <?php
 
-$myname=0;
-$email = 0;
-$username=0;
-$password= 0;
+$myname='';
+$email = '';
+$username='';
+$password= '';
 include ('../dbcon.php');
 
 if(isset($_POST['signup'])){
 
-
-	
 	$myname = $_POST['mname'];
 	$email = $_POST['email'];
 	$username = $_POST['uname'];
 	$password = $_POST['pass'];
-}
+
 // echo"yahan tak run ";
 // echo $name;
 
@@ -149,4 +147,6 @@ if($run == true){
 	echo" query not fire ";
 }
 
+
+}
 ?>
